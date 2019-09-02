@@ -28,15 +28,16 @@ int main()
     #pragma omp parallel private(tid) reduction(+:palabras)
     {
         int nucleos=omp_get_num_threads();
-        int x;//variable que almcenara la cantidad de lineas que tomar· cada hilo
+        int x;//variable que almcenara la cantidad de lineas que tomar√° cada hilo
         x=lineas/nucleos;//funcion que me retorna el numero de nucleo que maneja mi dispositivo
         tid=omp_get_thread_num();//identificador del hilo
-        int partes=x*(tid+1);//delimitaciÛn de las partes para cada hilo
+        int partes=x*(tid+1);//delimitaci√≥n de las partes para cada hilo
 
         if(tid==(nucleos-1)){
             partes=lineas;
         }
         bool espacio=true; //verificacion de que despues de un espacio halla una palabra y no otro espacio
+        #pragma omp for
         for (int i=x*tid;i<partes;i++){
             espacio=true;
             for(int j=0;j<vector[i].size();j++){
