@@ -37,7 +37,6 @@ int main()
             partes=lineas;
         }
         bool espacio=true; //verificacion de que despues de un espacio halla una palabra y no otro espacio
-        #pragma omp for
         for (int i=x*tid;i<partes;i++){
             espacio=true;
             for(int j=0;j<vector[i].size();j++){
