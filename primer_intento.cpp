@@ -11,7 +11,7 @@ using namespace std;
 int main(int argc, char *argv[])
 {
     ifstream ifs;
-    if(argc==1)
+    if(argc>1)
         ifs.open(argv[1]);//El nombre se debe pasar como parametro al ejecutar el programa, en este caso "texto.txt" 
                           //sin comillas
     else
