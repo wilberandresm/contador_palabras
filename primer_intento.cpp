@@ -8,10 +8,15 @@
 //GIOVANNI LUIS PALENCIA
 using namespace std;
 
-int main()
+int main(int argc, char *argv[])
 {
     ifstream ifs;
-    ifs.open("texto.txt");
+    if(argc==1)
+        ifs.open(argv[1]);//El nombre se debe pasar como parametro al ejecutar el programa, en este caso "texto.txt" 
+                          //sin comillas
+    else
+        ifs.open("texto.txt");
+    
     int lineas=0; //contador de lineas inicializado en cero
     string aux;
     vector<string> vector; //el texto lo manejaremos por vectores para utilizar las lineas
